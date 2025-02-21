@@ -1,54 +1,124 @@
-/* Dashboard Background */
+/* ========== General Dashboard Background ========== */
 body {
-    background-color: #121212;
-    color: #cccccc;
-    font-family: 'Arial', sans-serif;
+    background-color: #000000;  /* Black background */
+    color: #cccccc;             /* Light grey text */
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header Styling */
-h1, h2, h3, h4 {
-    color: #dddddd;
+/* ========== Header and Navbar ========== */
+/* Top header background and title */
+.navbar {
+    background-color: #222222 !important; /* Dark grey instead of blue */
+    border-bottom: 2px solid #ff00ff;
 }
 
-/* Panel Background */
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* ========== Storyboard Navigation ========== */
+/* Inactive Tabs */
+.nav-tabs > li {
+    background-color: #222222; /* Dark grey for inactive tabs */
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+.nav-tabs > li > a {
+    color: #aaaaaa !important; /* Grey text for inactive tabs */
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Active Tab */
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:hover {
+    color: #ffffff !important; /* White text for active tab */
+    background-color: #444444 !important; /* Darker background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff00ff; /* Neon glow effect */
+}
+
+/* ========== Panel Backgrounds ========== */
 .section.level2 {
-    background-color: #1e1e1e;
+    background-color: #000000 !important; /* Fully black panel background */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
-/* Sidebar Styling */
-.navbar {
-    background-color: #1e1e1e !important;
-    color: #cccccc !important;
-}
 
-/* Table Styling */
+/* ========== Table Styling ========== */
+
+/* Table Container */
 table {
-    background-color: #1e1e1e;
-    color: #cccccc;
+    background-color: #111111 !important;
+    color: #ffffff !important;
     border: 1px solid #333333;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Optional glow effect */
 }
 
-/* Plot Background */
+/* Header Row - Black Background, White Text */
+th {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ff00ff; /* Futuristic accent */
+}
+
+/* Body Rows - Alternating Grey Background */
+td {
+    background-color: #1e1e1e !important; /* Slightly grey */
+    color: #ffffff !important;
+    padding: 8px;
+    border-bottom: 1px solid #333333;
+}
+
+/* Hover Effect for Rows */
+tr:hover td {
+    background-color: #333333 !important;
+    color: #ff00ff !important;
+}
+
+/* Zebra Stripes for Rows */
+tbody tr:nth-child(even) td {
+    background-color: #222222 !important;
+}
+
+/* Table Caption */
+caption {
+    color: #ff00ff;
+    font-size: 1.2em;
+    margin-bottom: 10px
+}
+/* ========== Plots ========== */
 .plotly {
-    background-color: #1e1e1e !important;
-    color: #cccccc !important;
+    background-color: #000000 !important;
 }
 
-/* Button Styling */
-.btn {
-    background-color: #0078d4;
-    color: white;
-    border-radius: 5px;
-}
 
-/* Link Styling */
+/* ========== Links ========== */
 a {
-    color: #00ffff;
+    color: #ff00ff;
+    text-decoration: none;
 }
 
 a:hover {
     color: #ff00ff;
+}
+
+#first-tab-caption {
+    font-size: 20px;         /* Adjust size as needed */
+    line-height: 1.6;        /* Improves readability */
+    color: white;            /* Ensures white text */
+    background-color: #222222; /* Optional: Dark background for contrast */
+    padding: 15px;
+    border-radius: 10px;
 }
