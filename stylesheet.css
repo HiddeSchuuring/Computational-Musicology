@@ -1,0 +1,54 @@
+/* Dashboard Background */
+body {
+    background-color: #121212;
+    color: #cccccc;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+h1, h2, h3, h4 {
+    color: #dddddd;
+}
+
+/* Panel Background */
+.section.level2 {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Sidebar Styling */
+.navbar {
+    background-color: #1e1e1e !important;
+    color: #cccccc !important;
+}
+
+/* Table Styling */
+table {
+    background-color: #1e1e1e;
+    color: #cccccc;
+    border: 1px solid #333333;
+}
+
+/* Plot Background */
+.plotly {
+    background-color: #1e1e1e !important;
+    color: #cccccc !important;
+}
+
+/* Button Styling */
+.btn {
+    background-color: #0078d4;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Link Styling */
+a {
+    color: #00ffff;
+}
+
+a:hover {
+    color: #ff00ff;
+}
