@@ -19,6 +19,90 @@ library(DT)
 library(here)
 ```
 
+### Chromagrams
+```{r}
+library(tidyverse)
+source("compmus.R")
+library(rjson)
+
+"features/hidde-s-1.json" |>                           # Change the track
+  compmus_chroma(norm = "manhattan") |>                 # Change the norm
+  ggplot(aes(x = time, y = pc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:11,
+    minor_breaks = NULL,
+    labels = c(
+                "C", "C#|Db", "D", "D#|Eb",
+                "E", "F", "F#|Gb", "G",
+                "G#|Ab", "A", "A#|Bb", "B"
+              )
+  ) +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic()     
+```
+
+***
+
+This is a chromagram of my original track. Most of the track is C dominant which is correct. Interesting: from 50-80 seconds there's some higher notes, this corresponds to my song which drops at that point and starts playing harmonies. also from 150-170 there's a lot more c than normal, this is because there's a very high note playing a c as well as the rest of the track. 
+
+### Cepstrograms
+```{r}
+library(tidyverse)
+source("compmus.R")
+library(rjson)
+
+"features/hidde-s-1.json" |>                           # Change the track
+  compmus_mfccs(norm = "manhattan") |>                  # Change the norm
+  ggplot(aes(x = time, y = mfcc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:12,
+    minor_breaks = NULL,
+  ) +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = "Coefficient Number", fill = NULL) +
+  theme_classic()                 
+```
+
+### Chroma SSM
+```{r}
+  library(tidyverse)
+  source("compmus.R")
+  library(rjson)
+  "features/hidde-s-1.json" |>                           # Change the track
+    compmus_chroma(norm = "manhattan") |>                 # Change the norm
+    compmus_self_similarity(
+      feature = pc,
+      distance = "aitchison"                             # Change the distance
+    ) |>   
+    ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+    geom_raster() +
+    scale_fill_viridis_c(guide = "none") +               # Change the colours?
+    labs(x = "Time (s)", y = NULL, fill = NULL) +
+    theme_classic()                                      # Change the theme?
+  
+  
+  "features/hidde-s-1.json" |>                           # Change the track
+  compmus_mfccs(norm = "euclidean") |>                  # Change the norm
+  compmus_self_similarity(
+    feature = mfcc,
+    distance = "angular"                             # Change the distance
+  ) |>   
+  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic()   
+```
+
+***
+
+The Chroma SSM shows that most of the song is quite similar in key and it shows that there are a lots of little moments of uniqueness in both of the chorus'. It could be that the software struggles with the organs in the track, which may be percieved as slightly offkey because they sound a bit detuned.
+
+The timbre SSM is interesting as it cleary shows that when the breakdowns are happening. in the 20-40 and 125-150 there are breakdowns which are similar in timbre, since they have the same absence of drums.
+
 
 ### The Computational Musicology Dataset Explained 
 <div id="first-tab-caption">
@@ -133,3 +217,5 @@ I produced this song myself. I make music with clubs or festivals in mind as I l
 This is a track I generated with Suno. I asked chat gpt what the key characteristics of a dance track in a sweaty club in Amsterdam were:
 
 “Punchy four-on-the-floor kick, deep rolling bass, crisp shuffled hi-hats, sharp claps, detuned wide synth leads, tension-filled breakdown, rising FX, massive sidechained drop, high-energy, club-focused groove.”
+
+ 
