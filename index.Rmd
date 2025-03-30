@@ -869,3 +869,5 @@ After exploring a wide range of computational musicology tools — including chr
 
 AI music isn't necessarily less “good,” but it may be less “interesting.”
 It optimizes for what it knows — often danceability and repetition — but may lack the unpredictability, nuance, and emotional arcs of human creativity. 
+
+-- Hidde Schuuring
