@@ -1,5 +1,5 @@
 ---
-title: "Engagingness in Music: a Computational Analysis"
+title: "How far is the AI producer compared to humans?"
 output:
   flexdashboard::flex_dashboard:
     orientation: rows  
@@ -288,7 +288,7 @@ In the AI chromagrams color patterns appear more homogenous and repetitive. In b
 
 Based on these visual cues, it does appear that AI-generated music—at least in these examples—produces less complex and varied melodic structures than human-composed tracks which could be due to a tendency of AI models to optimize for genre consistency rather than creativity and limitations in AI training data that may emphasize safe or average melodic choices. 
 
-# Chordprogressions between AI and Human made music is indistinguishable
+# 4. Chordprogressions between AI and Human made music is indistinguishable
 
 ##
 
@@ -531,7 +531,7 @@ grid.arrange(p1, p2, ncol = 2)
 
 Despite the intention to analyze harmonic clarity or predictability between human and AI music, these chordograms are too noisy to draw clear or meaningful conclusions. The abundance of activity across almost all chord templates suggests that the tracks—both human and AI—have rich harmonic content, or that the method used is overly sensitive. The only conclusion we can make is that there's no obvious difference between the two. 
 
-# Tempo is an uninteresting factor
+# 5. Tempo is an uninteresting factor
 
 ## energy novelty:
 
@@ -619,7 +619,7 @@ grid.arrange(p1, p2, ncol = 2)
 ```
 
 
-# AI generated music is structured more rigidly
+# 6. AI generated music is structured more rigidly
 
 ## cepstograms
 
@@ -700,7 +700,7 @@ The matrix corresponding to the human track is highly dense with a fine-grained 
 
 The human made track shows more organic complexity and varied repetition while the AI generated track tends to be more predictable, possibly relying on pre-learned looping templates or structural repetition.
 
-# can we classify AI made songs? 
+# 7. can we classify AI made songs? 
 
 ##
 
@@ -863,7 +863,7 @@ However, human tracks do show more dispersion: Yellow (Non-AI) dots appear acros
 
 This supports the idea that AI might optimize for engagement, but not necessarily for variety or experimentation.
 
-# AI generated music is just as engaging, but less interesting as humanly produced music
+# 8. AI generated music is just as engaging, but less interesting as humanly produced music
 
 After exploring a wide range of computational musicology tools — including chromagrams, chordograms, novelty functions, tempo analysis, cepstrograms, self-similarity matrices, and classification models — we arrive at a nuanced picture. AI-generated tracks are becoming increasingly difficult to distinguish from human-made ones — especially when evaluated through traditional audio features. However, subtle differences in structure, timbre, and expressive variation still give human compositions a slight edge in creativity and depth.
 
