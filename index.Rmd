@@ -234,6 +234,8 @@ grid.arrange(p1, p2, ncol = 2)
 
 ```
 
+###
+
 A chromagram shows how pitch classes (notes like C, D#, F, etc.) are used over time in a track. The vertical axis represents pitch classes, and the horizontal axis is time. Brighter colors indicate stronger presence of a pitch at a given moment. Above and below this text, you can see chromagrams from my two tracks and from two random tracks from the corpus (filtered on dancemusic). 
 
 ## AI Chromagrams
@@ -278,6 +280,8 @@ p2 <- "features/berend-b-2.json" |>                           # Change the track
 
 grid.arrange(p1, p2, ncol = 2)
 ```
+
+###
 
 In the human chromagrams we can see that there's more dynamic variation in the colours, we can see that colours are fading more often which could suggest chord changes or melodic motion. the vertical lines are less uniform than in the AI chromagrams indicating that melodies and harmonies are more varied and nuanced.
 
@@ -407,6 +411,8 @@ p2 <- "features/evan-l-2.json" |>
 grid.arrange(p1, p2, ncol = 2)
 ```
 
+###
+
 In the chordograms shown here, we compare human-composed and AI-generated dance tracks. Visually, these graphs are quite dense and noisy—showing rapid and complex fluctuations across many possible chord templates.
 
 ## AI GENERATED
@@ -526,17 +532,15 @@ grid.arrange(p1, p2, ncol = 2)
 
 ```
 
+###
+
 Despite the intention to analyze harmonic clarity or predictability between human and AI music, these chordograms are too noisy to draw clear or meaningful conclusions. The abundance of activity across almost all chord templates suggests that the tracks—both human and AI—have rich harmonic content, or that the method used is overly sensitive. The only conclusion we can make is that there's no obvious difference between the two. 
 
 # 5. Tempo is an uninteresting factor
 
 ## energy novelty:
 
-An energy novelty function detects sudden changes in the energy of a track over time, which often corresponds to musical events like beat drops, new sections, or dramatic transitions.
-
-In this comparison, we can see that the human-made track (left) has sharper and more defined peaks, suggesting more distinct transitions and dynamic shifts. In contrast, the AI-generated track (right) shows a more even distribution of energy changes, lacking distinct peaks. This could imply that the AI song has less structural variation or is less dynamic overall. This corresponds two how both songs sound as my own song has major shifts in volume while the AI song doesn't seem to do so. 
-
-While both tracks have fluctuations, my human track appears to exhibit more contrast and intentional build-ups, which might contribute to a more engaging listening experience. 
+An energy novelty function detects sudden changes in the energy of a track over time, which often corresponds to musical events like beat drops, new sections, or dramatic transitions. In this comparison, we can see that the human-made track (left) has sharper and more defined peaks, suggesting more distinct transitions and dynamic shifts. In contrast, the AI-generated track (right) shows a more even distribution of energy changes, lacking distinct peaks. This could imply that the AI song has less structural variation or is less dynamic overall. This corresponds two how both songs sound as my own song has major shifts in volume while the AI song doesn't seem to do so. While both tracks have fluctuations, my human track appears to exhibit more contrast and intentional build-ups, which might contribute to a more engaging listening experience. 
 
 ## energy novelty function
 ```{r novelty, fig.width=14, fig.height=5}
@@ -561,11 +565,7 @@ grid.arrange(p1, p2, ncol = 2)
 
 ##
 
-Spectral novelty functions capture sudden changes in the frequency content of a track—essentially tracking how the timbre or instrumentation shifts over time.
-
-As seen in the graphs below, both the human-made and AI-generated tracks display very noisy novelty curves, with dense and frequent peaks throughout. This noisiness is typical for dance music, which often features steady rhythmic patterns driven by drum machines and consistent percussive elements.
-
-Because of this, the novelty functions don’t provide clear structural segmentation or meaningful differences between the two types of tracks. In this case, the spectral novelty function isn’t very useful for distinguishing between AI and human-generated music. 
+Spectral novelty functions capture sudden changes in the frequency content of a track—essentially tracking how the timbre or instrumentation shifts over time. As seen in the graphs below, both the human-made and AI-generated tracks display very noisy novelty curves, with dense and frequent peaks throughout. This noisiness is typical for dance music, which often features steady rhythmic patterns driven by drum machines and consistent percussive elements. Because of this, the novelty functions don’t provide clear structural segmentation or meaningful differences between the two types of tracks. In this case, the spectral novelty function isn’t very useful for distinguishing between AI and human-generated music. 
 
 ## spectral novelty function
 ```{r spectral novelty, fig.width=14, fig.height=5}
@@ -590,7 +590,7 @@ grid.arrange(p1, p2, ncol = 2)
 
 ##
 
-Tempograms visualize the tempo of a track over time by analyzing periods in the energy signal. As you can see there isn't a difference or anything interesting to see since dance music is made with a drum machine and thus the tempo will remain steady as shown in these graphs wheter it is made by AI or not. 
+Tempograms (below) visualize the tempo of a track over time by analyzing periods in the energy signal. As you can see there isn't a difference or anything interesting to see since dance music is made with a drum machine and thus the tempo will remain steady as shown in these graphs wheter it is made by AI or not. 
 
 ## tempograms
 ```{r tempogram, fig.width=14, fig.height=5}
@@ -693,9 +693,7 @@ grid.arrange(p1, p2, ncol = 2)
 
 ##
 
-The matrix corresponding to the human track is highly dense with a fine-grained texture. Diagonal stripes and criss-crossing bands suggest recurring patterns and sections—likely verse/chorus structure, breakdowns, or returning motifs. The AI tracks SSM is much more grid-like and rigid. Self-similarity reveals an important contrast:
-
-The human made track shows more organic complexity and varied repetition while the AI generated track tends to be more predictable, possibly relying on pre-learned looping templates or structural repetition.
+The matrix corresponding to the human track is highly dense with a fine-grained texture. Diagonal stripes and criss-crossing bands suggest recurring patterns and sections—likely verse/chorus structure, breakdowns, or returning motifs. The AI tracks SSM is much more grid-like and rigid. Self-similarity reveals an important contrast: The human made track shows more organic complexity and varied repetition while the AI generated track tends to be more predictable, possibly relying on pre-learned looping templates or structural repetition.
 
 # 7. can we classify AI made songs? 
 
@@ -856,15 +854,12 @@ compmus2025_filtered |>
 ##
 
 Danceability is slightly higher for AI tracks: The darker purple dots (AI) tend to cluster in the upper-right, suggesting that AI-generated tracks may favor higher danceability — possibly aiming for listener engagement. There's no clear tempo separation between AI and human tracks and both AI and non-AI dots appear at all bubble sizes, reaffirming what we’ve seen earlier: tempo isn’t a strong classifier.
-However, human tracks do show more dispersion: Yellow (Non-AI) dots appear across a wider range of danceability values, from low to high while AI tracks are more tightly grouped, which might suggest a more uniform production style. We can thus conclude that AI-generated tracks tend to prioritize danceability and sit comfortably in a narrow tempo range — likely due to training on existing dance music datasets. Human producers, on the other hand, explore a slightly broader spectrum, especially on the lower end of danceability.
-
-This supports the idea that AI might optimize for engagement, but not necessarily for variety or experimentation.
+However, human tracks do show more dispersion: Yellow (Non-AI) dots appear across a wider range of danceability values, from low to high while AI tracks are more tightly grouped, which might suggest a more uniform production style. We can thus conclude that AI-generated tracks tend to prioritize danceability and sit comfortably in a narrow tempo range — likely due to training on existing dance music datasets. Human producers, on the other hand, explore a slightly broader spectrum, especially on the lower end of danceability. This supports the idea that AI might optimize for engagement, but not necessarily for variety or experimentation.
 
 # 8. AI generated music is just as engaging, but less interesting as humanly produced music
 
-After exploring a wide range of computational musicology tools — including chromagrams, chordograms, novelty functions, tempo analysis, cepstrograms, self-similarity matrices, and classification models — we arrive at a nuanced picture. AI-generated tracks are becoming increasingly difficult to distinguish from human-made ones — especially when evaluated through traditional audio features. However, subtle differences in structure, timbre, and expressive variation still give human compositions a slight edge in creativity and depth.
+After exploring a wide range of computational musicology tools — including chromagrams, chordograms, novelty functions, tempo analysis, cepstrograms, self-similarity matrices, and classification models — we arrive at a nuanced picture. AI-generated tracks are becoming increasingly difficult to distinguish from human-made ones — especially when evaluated through traditional audio features. However, subtle differences in structure, timbre, and expressive variation still give human compositions a slight edge in creativity and depth. AI music isn't necessarily less “good,” but it may be less “interesting.”
 
-AI music isn't necessarily less “good,” but it may be less “interesting.”
 It optimizes for what it knows — often danceability and repetition — but may lack the unpredictability, nuance, and emotional arcs of human creativity. 
 
 -- Hidde Schuuring
